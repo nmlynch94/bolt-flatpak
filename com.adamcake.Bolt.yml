@@ -11,12 +11,6 @@ finish-args:
   - --share=network
   - --device=all
 modules:
-  - name: openh264
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://github.com/cisco/openh264.git
-        commit: 0a48f4d2e9be2abb4fb01b4c3be83cf44ce91a6e
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
@@ -26,7 +20,7 @@ modules:
       - type: archive
         dest: cef/dist
         url: https://adamcake.com/cef/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak.tar.gz
-        sha256: f565965b2743fddf2eb18cf63ff5b5f998b1abbcfb87609e34ab2ea8def51b34
+        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
       - type: git
         url: https://github.com/Adamcake/Bolt.git
         commit: e21c0b6e05294c4ae7d62341956f882a9773d62c 
