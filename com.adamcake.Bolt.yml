@@ -26,7 +26,7 @@ modules:
         sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
       - type: git
         url: https://github.com/Adamcake/Bolt.git
-        commit: d5618a6a36ced7b68dde0a18edb099f9fd4bbc9b 
+        commit: d7397b6466ac7b4b617daa98b8e677aed0fad748 
   - name: openjdk
     buildsystem: simple
     build-commands:
