@@ -6,27 +6,49 @@ sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk17
 command: bolt
+build-options:
+  cflags: -O3
+  cflags-override: true
+  cppflags: -O3
+  cppflags-override: true
+  cxxflags: -O3
+  cxxflags-override: true
 finish-args:
   - --share=ipc
   - --socket=x11
+  - --socket=wayland
   - --socket=pulseaudio
   - --share=network
-  - --device=all
-  - --env=PATH=/app/bin:/usr/bin:/app/jre/bin
+  - --device=dri
+  - --env=JAVA_HOME=/app/jre
+  - --talk-name=org.freedesktop.Notifications
+  - --filesystem=xdg-data/icons:create
+  - --filesystem=xdg-run/app/com.discordapp.Discord
 modules:
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DBOLT_META_NAME=com.adamcake.Bolt
+      - -DBOLT_SKIP_LIBRARIES=1
       - -DBOLT_BINDIR=bin
     sources:
-      - type: archive
-        dest: cef/dist
-        url: https://adamcake.com/cef/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak.tar.gz
-        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
       - type: git
         url: https://github.com/Adamcake/Bolt.git
-        commit: d5618a6a36ced7b68dde0a18edb099f9fd4bbc9b 
+        tag: 0.9.0
+        commit: 3e70bfa6603e4913e39d6cd067838f562d853678
+      - type: archive
+        dest: cef/dist
+        only-arches:
+          - "x86_64"
+        url: https://adamcake.com/cef/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak.tar.gz
+        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
+      - type: archive
+        dest: cef/dist
+        only-arches:
+          - "aarch64"
+        url: https://cef-builds.spotifycdn.com/cef_binary_124.3.9%2Bg9bd638f%2Bchromium-124.0.6367.207_linuxarm64_minimal.tar.bz2
+        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
   - name: openjdk
     buildsystem: simple
     build-commands:
