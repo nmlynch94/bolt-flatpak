@@ -25,30 +25,6 @@ finish-args:
   - --filesystem=xdg-data/icons:create
   - --filesystem=xdg-run/app/com.discordapp.Discord
 modules:
-  - name: bolt
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBOLT_META_NAME=com.adamcake.Bolt
-      - -DBOLT_SKIP_LIBRARIES=1
-      - -DBOLT_BINDIR=bin
-    sources:
-      - type: git
-        url: https://github.com/Adamcake/Bolt.git
-        tag: 0.9.0
-        commit: 3e70bfa6603e4913e39d6cd067838f562d853678
-      - type: archive
-        dest: cef/dist
-        only-arches:
-          - "x86_64"
-        url: https://adamcake.com/cef/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak.tar.gz
-        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
-      - type: archive
-        dest: cef/dist
-        only-arches:
-          - "aarch64"
-        url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/dist.zip
-        sha256: 9d5492efa408e47073a50be1dce0de9e373e1e688913400aff3d05c8a4f38b53
   - name: openjdk
     buildsystem: simple
     build-commands:
@@ -64,3 +40,27 @@ modules:
       - type: git
         url: https://github.com/openssl/openssl.git
         commit: 129058165d195e43a0ad10111b0c2e29bdf65980
+    sources:
+      - type: git
+        url: https://github.com/Adamcake/Bolt.git
+        tag: 0.9.0
+        commit: 3e70bfa6603e4913e39d6cd067838f562d853678
+      - type: archive
+        dest: cef/dist
+        only-arches:
+          - "x86_64"
+        url: https://adamcake.com/cef/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak.tar.gz
+        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
+      - type: archive
+        dest: cef/dist
+        only-arches:
+          - "aarch64"
+        url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak-aarch64.tar.bz2
+        sha256: cab4b57238be1fd3f6965866fb941b2856066fc32918a572857b7f01ddc40e6b
+  - name: bolt
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBOLT_META_NAME=com.adamcake.Bolt
+      - -DBOLT_SKIP_LIBRARIES=1
+      - -DBOLT_BINDIR=bin
