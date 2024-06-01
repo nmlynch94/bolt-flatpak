@@ -47,8 +47,8 @@ modules:
         dest: cef/dist
         only-arches:
           - "aarch64"
-        url: https://cef-builds.spotifycdn.com/cef_binary_124.3.9%2Bg9bd638f%2Bchromium-124.0.6367.207_linuxarm64_minimal.tar.bz2
-        sha256: b9c09ebfdf2cbef10cb43527a90d01f02a7397fd3a504bc8c05c5b78767dec47
+        url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/dist.zip
+        sha256: 9d5492efa408e47073a50be1dce0de9e373e1e688913400aff3d05c8a4f38b53
   - name: openjdk
     buildsystem: simple
     build-commands:
