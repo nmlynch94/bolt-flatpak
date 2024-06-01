@@ -62,5 +62,5 @@ modules:
         dest: cef/dist
         only-arches:
           - "aarch64"
-        url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak-aarch64.tar.gz
+        url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak-aarch64.zip
         sha256: 3744eaccf1b403b50ddbea294ce83d59b3846b8c5e03929333fc0dc3d0c6e9e7
