@@ -40,6 +40,13 @@ modules:
       - type: git
         url: https://github.com/openssl/openssl.git
         commit: 129058165d195e43a0ad10111b0c2e29bdf65980
+  - name: bolt
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBOLT_META_NAME=com.adamcake.Bolt
+      - -DBOLT_SKIP_LIBRARIES=1
+      - -DBOLT_BINDIR=bin
     sources:
       - type: git
         url: https://github.com/Adamcake/Bolt.git
@@ -57,10 +64,3 @@ modules:
           - "aarch64"
         url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak-aarch64.tar.gz
         sha256: 3744eaccf1b403b50ddbea294ce83d59b3846b8c5e03929333fc0dc3d0c6e9e7
-  - name: bolt
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DBOLT_META_NAME=com.adamcake.Bolt
-      - -DBOLT_SKIP_LIBRARIES=1
-      - -DBOLT_BINDIR=bin
