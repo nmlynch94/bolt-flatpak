@@ -55,8 +55,8 @@ modules:
         dest: cef/dist
         only-arches:
           - "aarch64"
-        url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak-aarch64.tar.bz2
-        sha256: cab4b57238be1fd3f6965866fb941b2856066fc32918a572857b7f01ddc40e6b
+        url: https://github.com/nmlynch94/bolt-flatpak/releases/download/asdf/cef-114.0.5735.201-linux64-minimal-ungoogled-flatpak-aarch64.tar.gz
+        sha256: 3744eaccf1b403b50ddbea294ce83d59b3846b8c5e03929333fc0dc3d0c6e9e7
   - name: bolt
     buildsystem: cmake-ninja
     config-opts:
